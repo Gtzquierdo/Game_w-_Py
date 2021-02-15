@@ -14,8 +14,8 @@ YELLOW = (255, 255, 0)
 
 BORDER = pygame.Rect(WIDTH//2 - 5, 0, 10, HEIGHT)
 
-BULLET_HIT_SOUND = pygame.mixer.Sound(os.path.join('Assets', 'death.mp3'))
-BULLET_FIRE_SOUND =pygame.mixer.Sound(os.path.join('Assets', 'fireball-2.mp3'))
+BULLET_HIT_SOUND = pygame.mixer.Sound(os.path.join('Assets', 'hit.wav'))
+BULLET_FIRE_SOUND =pygame.mixer.Sound(os.path.join('Assets', 'electric.wav'))
 
 HEALTH_FONT = pygame.font.SysFont('comicsans', 40)
 WINNER_FONT = pygame.font.SysFont('comicsans', 100)
@@ -140,7 +140,9 @@ def main():
             if event.type == YELLOW_HIT:
                 yellow_health -= 1
                 BULLET_HIT_SOUND.play()
-        
+
+
+        winner_text = ""
         if red_health <= 0:
             winner_text = "Yellow Wins!"
         
